@@ -52,22 +52,21 @@ const questions = [
         name: "contributing"
     }
 ]
-inquirer.prompt(questions).then(answers => {
-console.log(answers)
-// TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
-fs.writeFile("README.md", generateMarkdown(answers), (err) => {
-    if (err) {
-        throw err;
-    } else {
-        console.log("README.md generated!")
-    }
-})
-});
 
 // TODO: Create a function to initialize app
 function init() {
-
+    inquirer.prompt(questions).then(answers => {
+        console.log(answers)
+        // TODO: Create a function to write README file
+        // function writeToFile(fileName, data) {}
+        fs.writeFile("README.md", generateMarkdown(answers), (err) => {
+            if (err) {
+                throw err;
+            } else {
+                console.log("README.md generated!")
+            }
+        })
+        });
 }
 
 // Function call to initialize app
